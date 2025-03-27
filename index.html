@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard-The-Leon</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="time-date-container">
+        <p id="clock"></p>
+      </section>
+      <section class="dashboard-container">
+        <div id="dbTitle-container">
+          <h1 id="db-titleText" contenteditable="true">My Dashboard</h1>
+        </div>
+        <section class="db-block-container">
+          <div>
+            <h3>Länkar</h3>
+            <div class="db-items" id="linksContainer">
+                <p>Lorem ipsum dolor sit amet consectetur </p>
+            </div>
+            <button id="addLink"><i>LÄgg till länk</i></button>
+          </div>
+          <div id="weather-container">
+            <h3>Vädret</h3>
+            <p id="weather">Hämtar väderdata...</p>
+          </div>
+          <div class="news-container">
+            <h3>News</h3>
+            <select name="place" id="place">
+              <option value="Varberg">Varberg</option>
+              <option value="World">World</option>
+            </select>
+            <div class="db-items">
+              <span class="infoBox-container"></span>
+              <button>knapp</button>
+            </div>
+          </div>
+          <div>
+            <div class="db-items">
+              <h3>Notes</h3>
+              <textarea
+                id="notes"
+                placeholder="Skriv dina anteckningar här..."
+              ></textarea>
+            </div>
+          </div>
+        </section>
+        <section class="bottom-container">
+          <button id="changeBackground">Byt bakgrund</button>
+        </section>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="Components/scriptTime.js"></script>
+    <script src="Components/scriptEdit.js"></script>
+    <script src="Components/scriptLinks.js"></script>
+    <script type="module" src="Components/scriptWeather.js"></script>
+    <script src="Components/scriptNotes.js"></script>
+    <script type="module" src="Components/scriptBackground.js"></script>
+</body>
+</html>
