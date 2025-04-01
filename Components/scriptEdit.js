@@ -13,11 +13,10 @@ function setupEditableTitle() {
     title.addEventListener("keypress", (event) => {
         if (event.key === "Enter") {
             event.preventDefault();
-            title.blur(); // Avsluta redigering
-        }
+            title.blur(); 
     });
 }
 document.addEventListener("DOMContentLoaded", () => {
 
-    setupEditableTitle(); // Gör titeln redigerbar och sparbar
+    setupEditableTitle(); 
 });

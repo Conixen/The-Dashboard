@@ -1,4 +1,3 @@
-// Ladda och visa sparade länkar
 function loadLinks() {
     const linksContainer = document.getElementById("linksContainer");
     linksContainer.innerHTML = "";
@@ -25,7 +24,6 @@ function loadLinks() {
     });
 }
 
-// Lägga till en ny länk
 function addLink() {
     const title = prompt("Ange länkens titel:");
     if (!title) return;
@@ -40,7 +38,6 @@ function addLink() {
     loadLinks();
 }
 
-// Ta bort en länk
 function deleteLink(index) {
     const links = JSON.parse(localStorage.getItem("savedLinks")) || [];
     links.splice(index, 1);
@@ -50,7 +47,6 @@ function deleteLink(index) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    loadLinks(); // Ladda sparade länkar
-
+    loadLinks(); 
     document.getElementById("addLink").addEventListener("click", addLink);
 });

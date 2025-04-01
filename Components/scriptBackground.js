@@ -1,6 +1,6 @@
-import API_KEYS from "../keys.js";
-
-console.log("scriptBackground.js är laddat!");
+const API_KEYS = {
+    unisplashApiKey: "srM0omfSq7mZ7HOklyxzD_XpubG61uqNVWMBi10G-gI"
+};
 
 function changeBackground() {
     const apiUrl = `https://api.unsplash.com/photos/random?client_id=${API_KEYS.unisplashApiKey}`;
@@ -8,11 +8,15 @@ function changeBackground() {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            console.log("API-svar:", data);
+            console.log("Fullt API-svar:", data); 
 
-            if (data && Array.isArray(data) && data.length > 0 && data[0].urls && data[0].urls.full) {
-                const imageUrl = data[0].urls.full; 
+            if (Array.isArray(data) && data.length > 0 && data[0].urls && data[0].urls.full) {
+                const imageUrl = data[0].urls.full;
+
+                
                 document.body.style.backgroundImage = `url('${imageUrl}')`;
+
+                
                 localStorage.setItem("dashboardBackground", imageUrl);
             } else {
                 console.error("Fel: Ingen bilddata eller URL hittades i svaret.");
@@ -23,7 +27,6 @@ function changeBackground() {
         });
 }
 
-
 function loadBackground() {
     const savedImage = localStorage.getItem("dashboardBackground");
     if (savedImage) {
@@ -33,9 +36,10 @@ function loadBackground() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    loadBackground(); 
+    loadBackground();
+
     const bgButton = document.getElementById("changeBackground");
     if (bgButton) {
-        bgButton.addEventListener("click", changeBackground); 
+        bgButton.addEventListener("click", changeBackground);
     }
 });
