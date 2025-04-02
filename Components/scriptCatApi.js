@@ -1,4 +1,4 @@
-const API_KEY = "live_cWxUrSq6GkmvtA7BGLQNh3qYCxbuqu5qiXuJLOHBnbSNNj7eBu44LznrPARNcy1t"; // Byt ut med din egen API-nyckel
+import API_KEYS from "../keys.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const catContainer = document.getElementById("catImages");
@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     async function fetchCats() {
         try {
             const response = await fetch("https://api.thecatapi.com/v1/images/search?limit=1", {
-                headers: { "x-api-key": API_KEY }
+                headers: { "x-api-key": catApiKey } // API_KEY
             });
 
             if (!response.ok) {

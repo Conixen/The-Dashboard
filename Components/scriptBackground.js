@@ -1,6 +1,4 @@
-const API_KEYS = {
-    unisplashApiKey: "srM0omfSq7mZ7HOklyxzD_XpubG61uqNVWMBi10G-gI"
-};
+
 
 function changeBackground() {
     const apiUrl = `https://api.unsplash.com/photos/random?client_id=${API_KEYS.unisplashApiKey}`;
@@ -10,13 +8,11 @@ function changeBackground() {
         .then(data => {
             console.log("Fullt API-svar:", data); 
 
-            if (Array.isArray(data) && data.length > 0 && data[0].urls && data[0].urls.full) {
-                const imageUrl = data[0].urls.full;
-
-                
+            if (data && data.urls && data.urls.full) {
+                const imageUrl = data.urls.full;
                 document.body.style.backgroundImage = `url('${imageUrl}')`;
-
-                
+                document.body.style.backgroundSize = "cover";
+                document.body.style.backgroundPosition = "center";
                 localStorage.setItem("dashboardBackground", imageUrl);
             } else {
                 console.error("Fel: Ingen bilddata eller URL hittades i svaret.");
