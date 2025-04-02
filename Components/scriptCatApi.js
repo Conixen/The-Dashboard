@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     async function fetchCats() {
         try {
             const response = await fetch("https://api.thecatapi.com/v1/images/search?limit=1", {
-                headers: { "x-api-key": catApiKey } // API_KEY
+                headers: { "x-api-key": API_KEYS.catApiKey } // API_KEY
             });
 
             if (!response.ok) {

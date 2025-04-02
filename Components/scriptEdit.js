@@ -14,7 +14,7 @@ function setupEditableTitle() {
         if (event.key === "Enter") {
             event.preventDefault();
             title.blur(); 
-    });
+    }})
 }
 document.addEventListener("DOMContentLoaded", () => {
 

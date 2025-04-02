@@ -1,5 +1,6 @@
-
-
+const API_KEYS = {
+    unisplashApiKey:""
+}; 
 function changeBackground() {
     const apiUrl = `https://api.unsplash.com/photos/random?client_id=${API_KEYS.unisplashApiKey}`;
 
@@ -11,8 +12,6 @@ function changeBackground() {
             if (data && data.urls && data.urls.full) {
                 const imageUrl = data.urls.full;
                 document.body.style.backgroundImage = `url('${imageUrl}')`;
-                document.body.style.backgroundSize = "cover";
-                document.body.style.backgroundPosition = "center";
                 localStorage.setItem("dashboardBackground", imageUrl);
             } else {
                 console.error("Fel: Ingen bilddata eller URL hittades i svaret.");
